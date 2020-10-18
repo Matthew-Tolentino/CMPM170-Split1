@@ -18,6 +18,8 @@ public class Creature : MonoBehaviour
 
     public types type;
 
+    public abilities ability;
+
     [Header("Follow Properties")]
     public float trailDist = 5.0f;
 
@@ -31,6 +33,7 @@ public class Creature : MonoBehaviour
         //StartCoroutine(follow());
     }
 
+
     protected virtual void Update()
     {
         // Calculate target position for object to path and start pathing if not currently following
@@ -38,11 +41,13 @@ public class Creature : MonoBehaviour
         if (!following) StartCoroutine(Follow(targetPos));
     }
 
+
     public virtual void useAbility() 
     {
         // TODO: Implement abilities in child classes
         Debug.LogError("In Creature useAbility(): No child ability implemented");
     }
+
 
     // Follow() will move object towards target position over a specified duration (moveDuration)
     // Once within .1 units of target position will snap to target position and followed object's rotation
