@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Call selected creature's ability 
+ *
+ * Note: Not sure if this is the best way to implement this
+ */
+
 public class PlayerAbilityManager : MonoBehaviour
 {
     public GameObject Time_Gerbil;

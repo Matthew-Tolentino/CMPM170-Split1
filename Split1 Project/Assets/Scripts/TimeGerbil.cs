@@ -2,24 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Child of Creature class
+ *      - Ability: Can stop time
+ */
+
 public class TimeGerbil : Creature
 {
     public float freezeRadius = 3.0f;
 
     public LayerMask freezeables;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         base.type = Creature.types.time_gerbil;
         base.ability = Creature.abilities.stop_time;
     }
 
-    // Update is called once per frame
+
     protected override void Update()
     {
         base.Update();
     }
+
 
     // Implement time stop ability
     public override void useAbility()
@@ -39,7 +45,8 @@ public class TimeGerbil : Creature
         }
     }
 
-
+    
+    // Show the range of ability in scene view when selected
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

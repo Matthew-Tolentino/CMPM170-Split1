@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Move enemy object horizontal or vertical be able to freeze */
+/*
+ * Move enemy object horizontal or vertical and be able to freeze 
+ */
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -21,9 +23,13 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector2 startPos;
 
+    [Header("Freezing Variables")]
     public float freezeDuration = 5.0f;
 
+    public SpriteRenderer spriteRend;
+
     private bool frozen = false;
+
 
     void Start()
     {
@@ -81,11 +87,13 @@ public class EnemyMovement : MonoBehaviour
     public void Freeze()
     {
         frozen = true;
+        spriteRend.color = Color.red;
         Invoke(nameof(UnFreeze), freezeDuration);
     }
 
     private void UnFreeze()
     {
+        spriteRend.color = Color.white;
         frozen = false;
     }
 }

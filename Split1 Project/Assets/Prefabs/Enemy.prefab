@@ -100,6 +100,7 @@ MonoBehaviour:
   maxPositive: 3
   maxNegative: 3
   freezeDuration: 5
+  spriteRend: {fileID: 2288593466623558912}
 --- !u!58 &-8835776426675964712
 CircleCollider2D:
   m_ObjectHideFlags: 0

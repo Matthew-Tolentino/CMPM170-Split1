@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Creature class is the parent class for any creatures added to the game
+ *      - Holds creature type and ability
+ *      - Takes in an object to follow behind
+ *      
+ *  Note: enums might be overkill and not really needed to determine creature
+ *        type and ability. Not sure if theres a better way to implement.
+ */
+
 public class Creature : MonoBehaviour
 {
     public enum types {celestial_deer, time_gerbil, space_monkey}
@@ -26,12 +35,6 @@ public class Creature : MonoBehaviour
     public float moveDuration = 3.0f;
 
     private bool following = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //StartCoroutine(follow());
-    }
 
 
     protected virtual void Update()

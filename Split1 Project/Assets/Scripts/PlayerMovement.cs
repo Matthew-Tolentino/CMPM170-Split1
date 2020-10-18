@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Move player via the keyboard
+ *      - Movement is physics based with a rigidbody2D
+ *      
+ *  Note: Temp movement can switch this out for a character 
+ *        controller or something else later.
+ */
+
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
