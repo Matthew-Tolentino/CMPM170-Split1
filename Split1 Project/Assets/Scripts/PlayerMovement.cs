@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveVertical = 0.0f;
 
+    [Header("Rotation Variables")]
+    public float rotationSmoothing = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,14 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb.AddForce(movement * moveSpeed, ForceMode2D.Impulse);
 
+        // Handle smooth rotation
+        if (movement != Vector2.zero)
+        {
+            Quaternion targetRot = Quaternion.LookRotation(Vector3.forward, movement);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 10 * rotationSmoothing * Time.deltaTime);
+        }
+
+        // Cap the maximum velocity to maxSpeed
         if (rb.velocity.magnitude > maxSpeed)
             rb.velocity = rb.velocity.normalized * maxSpeed;
     }
