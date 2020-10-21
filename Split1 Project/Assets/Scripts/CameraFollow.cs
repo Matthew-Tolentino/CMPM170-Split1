@@ -8,11 +8,20 @@ public class CameraFollow : MonoBehaviour
 
     public float moveDuration = 0.5f;
 
+    [Range(5.0f, 10.0f)]
     public float cameraZoom = 10.0f;
 
     private Vector3 targetPos;
 
     private bool following = false;
+
+    private Camera cam;
+
+
+    void Start()
+    {
+        cam = GetComponent<Camera>();
+    }
 
 
     // Update is called once per frame
@@ -21,9 +30,12 @@ public class CameraFollow : MonoBehaviour
         if (!following)
         {
             targetPos = objToFollow.transform.position;
-            targetPos.z = -cameraZoom;
+            targetPos.z = -10.0f;
             StartCoroutine(Follow(targetPos));
         }
+
+        // Camera FOV
+        cam.orthographicSize = cameraZoom;
     }
 
     

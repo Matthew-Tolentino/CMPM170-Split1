@@ -27,4 +27,21 @@ public class PlayerAbilityManager : MonoBehaviour
             gib.useAbility();
         }
     }
+
+    void OnTriggerEnter2D(Collider2D obj)
+    {
+        Debug.Log("Collided");
+        if (obj.CompareTag("PressurePlate"))
+        {
+            obj.gameObject.GetComponent<PressurePlate>().OpenDoor();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D obj)
+    {
+        if (obj.CompareTag("PressurePlate"))
+        {
+            obj.gameObject.GetComponent<PressurePlate>().CloseDoor();
+        }
+    }
 }
