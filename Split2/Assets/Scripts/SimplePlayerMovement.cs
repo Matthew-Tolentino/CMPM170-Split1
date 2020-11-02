@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class SimplePlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
-
     private Rigidbody rb;
+
+    public float acceleration = 5f;
+
+    public float maxMoveSpeed = 20;
+
+    float horizontal;
+    float vertical;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,21 +21,16 @@ public class SimplePlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.AddForce(Vector3.forward * speed);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.AddForce(Vector3.left * speed);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            rb.AddForce(Vector3.back * speed);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.AddForce(Vector3.right * speed);
-        }
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+    }
+
+    void FixedUpdate()
+    {
+        rb.AddForce(transform.forward * acceleration * vertical);
+        rb.AddForce(transform.right * acceleration * horizontal);
+
+        if (rb.velocity.magnitude > maxMoveSpeed)
+            rb.velocity = rb.velocity.normalized * maxMoveSpeed;
     }
 }
