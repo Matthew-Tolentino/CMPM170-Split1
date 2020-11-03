@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Scene_MatthewWorkspace.unity
+- path: Assets/Scenes/Scene_TrystanWorkspace.unity
   isLoaded: 1
   isActive: 1

@@ -14,9 +14,10 @@ public class SpiritMovement_Floating : MonoBehaviour
 
     private Vector3 moveTo;
     private Rigidbody rb;
-    private string state;
+    public string state;
 
     public Vector3 spawn;
+    public float speed;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class SpiritMovement_Floating : MonoBehaviour
         }
         else if (state == "ReturningToSpawn")
         {
-
+            moveTo = spawn;
             if (transform.position == spawn)
             {
                 Collider fs = GetComponent<Collider>();
@@ -47,18 +48,25 @@ public class SpiritMovement_Floating : MonoBehaviour
     private void FixedUpdate()
     {
         if (state != "Spawn")
-            rb.MovePosition(moveTo);
+        {
+            Vector3 direction = (moveTo - transform.position).normalized * (moveTo - transform.position).magnitude * speed;
+            rb.velocity = direction;
+            //rb.MovePosition(moveTo);
+        }
+            
     }
 
     public void ObtainSpiritFloating()
     {
         Collider fs = GetComponent<Collider>();
-        fs.enabled = false;
+        
         state = "OnPlayer";
     }
 
     public void ReleaseSpiritFloating()
     {
+        Collider fs = GetComponent<Collider>();
+        fs.enabled = false;
         state = "ReturningToSpawn";
     }
 }
