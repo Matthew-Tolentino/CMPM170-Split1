@@ -37,7 +37,9 @@ public class SpiritHandler : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Spirit_Land")
         {
-            // FOR LAND
+            var pull = collision.gameObject.GetComponent<SpriritMovement_Land>();
+            if (pull.state != "Spawn") return;
+            pull.ObtainSpiritLand();
         }
         else return;
 
@@ -68,9 +70,10 @@ public class SpiritHandler : MonoBehaviour
                     var pull = SpiritList[i].GetComponent<SpiritMovement_Floating>();
                     pull.ReleaseSpiritFloating();
                 }
-                else
+                else if (SpiritList[i].tag == "Spirit_Land")
                 {
-                    // FOR LAND
+                    var pull = SpiritList[i].GetComponent<SpriritMovement_Land>();
+                    pull.ReleaseSpiritLand();
                 }
                 SpiritList[i] = null;
                 return;

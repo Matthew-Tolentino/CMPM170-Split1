@@ -21,6 +21,7 @@ public class SpiritMovement_Floating : MonoBehaviour
 
     private void Start()
     {
+        spawn = transform.position;
         rb = GetComponent<Rigidbody>();
         state = "Spawn";
     }
@@ -51,15 +52,13 @@ public class SpiritMovement_Floating : MonoBehaviour
         {
             Vector3 direction = (moveTo - transform.position).normalized * (moveTo - transform.position).magnitude * speed;
             rb.velocity = direction;
-            //rb.MovePosition(moveTo);
+
         }
             
     }
 
     public void ObtainSpiritFloating()
-    {
-        Collider fs = GetComponent<Collider>();
-        
+    {   
         state = "OnPlayer";
     }
 
