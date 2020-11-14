@@ -16,14 +16,17 @@ public class SpiritMovement_Floating : MonoBehaviour
     private Rigidbody rb;
     public string state;
 
-    public Vector3 spawn;
+    private Vector3 spawn;
     public float speed;
+
+    public string type;
 
     private void Start()
     {
         spawn = transform.position;
         rb = GetComponent<Rigidbody>();
         state = "Spawn";
+        if (type == "") type = "NULL";
     }
 
     private void Update()
@@ -46,7 +49,7 @@ public class SpiritMovement_Floating : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         if (state != "Spawn")
         {
@@ -68,4 +71,5 @@ public class SpiritMovement_Floating : MonoBehaviour
         fs.enabled = false;
         state = "ReturningToSpawn";
     }
+
 }

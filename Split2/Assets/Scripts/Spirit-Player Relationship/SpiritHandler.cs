@@ -9,9 +9,12 @@ public class SpiritHandler : MonoBehaviour
 
     public GameObject[] SpiritList;
 
+    public bool ability;
+
     void Start()
     {
         rotDegree = 0f;
+        ability = false;
     }
 
 
@@ -20,10 +23,9 @@ public class SpiritHandler : MonoBehaviour
         rotDegree += rotSpeed * Time.fixedDeltaTime;
         //Tester
         //------------------------------------------------------------------
-        if (Input.GetKeyDown("space"))
-        {
-            loseSpirit();
-        }
+        if (Input.GetKeyDown("space")) loseSpirit();
+
+        if (Input.GetKeyDown("z")) callAbiliy();
         //------------------------------------------------------------------
     }
 
@@ -76,6 +78,24 @@ public class SpiritHandler : MonoBehaviour
                     pull.ReleaseSpiritLand();
                 }
                 SpiritList[i] = null;
+                return;
+            }
+        }
+    }
+
+    private void callAbiliy()
+    {
+        for (int i = 0; i < 6; ++i)
+        {
+            if (SpiritList[i].tag == "Spirit_Land")
+            {
+                var pull = SpiritList[i].GetComponent<SpriritMovement_Land>();
+                if (!ability)
+                {
+                    pull.abilityMove(new Vector3(0.0f, 1.0f, -4.0f));
+                    ability = true;
+                }
+                else pull.ObtainSpiritLand();
                 return;
             }
         }
