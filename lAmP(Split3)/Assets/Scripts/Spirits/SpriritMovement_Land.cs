@@ -21,6 +21,7 @@ public class SpriritMovement_Land : MonoBehaviour
     private Vector3 forceMove;
     private Quaternion forceRot;
 
+    private bool addF;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,8 @@ public class SpriritMovement_Land : MonoBehaviour
 
         forceMove = new Vector3();
         forceRot = new Quaternion();
+
+        addF = false;
     }
 
     // Update is called once per frame
@@ -77,11 +80,10 @@ public class SpriritMovement_Land : MonoBehaviour
         {
             moveTo = forceMove;
             transform.rotation = forceRot;
-            rb.useGravity = false;
             if (Mathf.Round(transform.position.x) == Mathf.Round(forceMove.x) && Mathf.Round(transform.position.z) == Mathf.Round(forceMove.z))
             {
                 state = "ForcedMovent_Idle";
-                rb.useGravity = true;
+                fs.enabled = true;
             }
         }
     }
@@ -92,6 +94,14 @@ public class SpriritMovement_Land : MonoBehaviour
         {
             Vector3 direction = (moveTo - transform.position).normalized * (moveTo - transform.position).magnitude * speed * accel;
             rb.velocity = direction;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (addF)
+        {
+            rb.AddForce(Vector3.up * 20);
+            addF = false;
         }
     }
 
@@ -110,7 +120,10 @@ public class SpriritMovement_Land : MonoBehaviour
     {
         state = "ForceMovement";
         forceMove = pos;
+        forceMove.y += 0.5f;
         forceRot = rot;
         accel = changeSpeed;
+        fs.enabled = false;
+        addF = true;
     }
 }

@@ -94,10 +94,15 @@ public class SpiritHandler : MonoBehaviour
                 var pull = SpiritList[i].GetComponent<SpriritMovement_Land>();
                 if (!ability)
                 {
-                    pull.abilityMove(new Vector3(0.0f, 1.0f, -4.0f));
+                    Vector3 got = transform.position + transform.forward * 4f;
+                    pull.abilityMove(got);
                     ability = true;
                 }
-                else pull.ObtainSpiritLand();
+                else
+                {
+                    pull.ObtainSpiritLand();
+                    ability = false;
+                }
                 return;
             }
         }
