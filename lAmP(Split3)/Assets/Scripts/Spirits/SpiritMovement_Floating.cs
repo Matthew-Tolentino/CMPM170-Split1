@@ -20,13 +20,17 @@ public class SpiritMovement_Floating : MonoBehaviour
     public float speed;
 
     public string type;
+    private float timer;
+    private Collider fs;
 
     private void Start()
     {
+        fs = GetComponent<Collider>();
         spawn = transform.position;
         rb = GetComponent<Rigidbody>();
         state = "Spawn";
         if (type == "") type = "NULL";
+        timer = 5f;
     }
 
     private void Update()
@@ -42,11 +46,10 @@ public class SpiritMovement_Floating : MonoBehaviour
         else if (state == "ReturningToSpawn")
         {
             moveTo = spawn;
-            if (transform.position == spawn)
+            if (Mathf.Round(transform.position.x) == Mathf.Round(spawn.x) && Mathf.Round(transform.position.z) == Mathf.Round(spawn.z))
             {
-                Collider fs = GetComponent<Collider>();
                 fs.enabled = true;
-                state ="Spawn";
+                state = "Spawn";
             }
         }
     }
@@ -68,7 +71,6 @@ public class SpiritMovement_Floating : MonoBehaviour
 
     public void ReleaseSpiritFloating()
     {
-        Collider fs = GetComponent<Collider>();
         fs.enabled = false;
         state = "ReturningToSpawn";
     }

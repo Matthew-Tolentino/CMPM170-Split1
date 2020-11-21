@@ -72,7 +72,7 @@ public class SpiritHandler : MonoBehaviour
                 {
                     var pull = SpiritList[i].GetComponent<SpiritMovement_Floating>();
                     pull.ReleaseSpiritFloating();
-                    Physics.IgnoreCollision(SpiritList[i].GetComponent<Collider>(), GetComponent<Collider>(), true);
+                    Physics.IgnoreCollision(SpiritList[i].GetComponent<Collider>(), GetComponent<Collider>(), false);
                 }
                 else if (SpiritList[i].tag == "Spirit_Land")
                 {
