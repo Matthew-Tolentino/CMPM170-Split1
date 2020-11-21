@@ -59,7 +59,7 @@ public class SpiritHandler : MonoBehaviour
 
     }
 
-    private void loseSpirit()
+    public void loseSpirit()
     {
         int i = 0;
         while (i < 6)
