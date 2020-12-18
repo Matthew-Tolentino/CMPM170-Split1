@@ -47,6 +47,7 @@ public class FieldOfView : MonoBehaviour
                 
                 if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
+                    Destroy(myPlayer);
                     spiritRef.loseSpirit();
                     visibleTargets.Add(target);
                 }
