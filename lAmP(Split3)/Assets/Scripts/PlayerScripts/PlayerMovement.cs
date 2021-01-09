@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;*/
 
     public float speed = 6f;
+    public float sprintSpeed = 20f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
 
@@ -35,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Sprinting
-        if (Input.GetKeyDown(KeyCode.LeftShift)) speed = 20f;
+        if (Input.GetKeyDown(KeyCode.LeftShift)) speed = sprintSpeed;
         else if (Input.GetKeyUp(KeyCode.LeftShift)) speed = 6f;
 
         // Player facing and rotation
