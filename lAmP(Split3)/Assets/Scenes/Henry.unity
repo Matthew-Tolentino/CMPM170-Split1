@@ -5232,7 +5232,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325256241}
-  m_LocalRotation: {x: 0.06630566, y: 0.70413405, z: -0.066332825, w: 0.7038457}
+  m_LocalRotation: {x: 0.06630566, y: 0.7041341, z: -0.066332825, w: 0.7038456}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -20286,7 +20286,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012745135}
-  m_LocalRotation: {x: 0.04102792, y: 0.7060596, z: -0.04104472, w: 0.7057705}
+  m_LocalRotation: {x: 0.04102792, y: 0.7060596, z: -0.041044727, w: 0.7057705}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33178,11 +33178,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0.1
+  - name: Dodoru
+    clip: {fileID: 8300000, guid: 711093ccfdd0d4e49b6e4504495d3bef, type: 3}
+    volume: 0.5
+    pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 0f74eeb3feb0df84bb92b3245fab7345, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &1545361690
 Transform:

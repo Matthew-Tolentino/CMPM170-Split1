@@ -33,6 +33,7 @@ public class SpiritHandler : MonoBehaviour
     {
         if (collision.gameObject.tag == "Spirit_Floating")
         {
+            FindObjectOfType<AudioManager>().Play("Dodoru");
             var pull = collision.gameObject.GetComponent<SpiritMovement_Floating>();
             if (pull.state != "Spawn") return;
             pull.ObtainSpiritFloating();
