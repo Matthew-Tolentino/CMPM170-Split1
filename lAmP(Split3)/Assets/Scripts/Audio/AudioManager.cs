@@ -1,4 +1,8 @@
-﻿using UnityEngine.Audio;
+﻿/* 
+ * Code based on Brackeys:
+ * https://www.youtube.com/watch?v=6OT43pvUyfY&t=705s
+ */
+using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
