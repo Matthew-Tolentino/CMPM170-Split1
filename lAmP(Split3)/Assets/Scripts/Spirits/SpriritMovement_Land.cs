@@ -30,7 +30,7 @@ public class SpriritMovement_Land : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.useGravity = true;
         rb.isKinematic = false;
-        timer = 3f;
+        timer = 5f;
         fs = GetComponent<Collider>();
         fs.enabled = true;
 
@@ -46,15 +46,21 @@ public class SpriritMovement_Land : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (state == "OnPlayer")
         {
             moveTo = player.position;
             //moveTo.y = transform.position.y;
-            if (Vector3.Distance(transform.position, player.position) < 1.5f) state = "OnPlayer_Idle";
+            if (Vector3.Distance(transform.position, player.position) < 2.5f) {
+                state = "OnPlayer_Idle";
+                accel = 1f;
+            }
         }
         else if (state == "OnPlayer_Idle")
-        {
-            if (Vector3.Distance(transform.position, player.position) > 2.5f) state = "OnPlayer";
+        {   
+            rb.useGravity = true;
+            fs.enabled = true;
+            if (Vector3.Distance(transform.position, player.position) > 3.5f) state = "OnPlayer";
         }
         else if (state == "ReturnToSpawn")
         {
@@ -62,6 +68,7 @@ public class SpriritMovement_Land : MonoBehaviour
             if (timer > 0) timer -= Time.deltaTime;
             else
             {
+                rb.detectCollisions = false;
                 rb.useGravity = false;
                 fs.enabled = false;
                 accel = 5f;
@@ -70,9 +77,10 @@ public class SpriritMovement_Land : MonoBehaviour
             if (Mathf.Round(transform.position.x) == Mathf.Round(spawn.x) && Mathf.Round(transform.position.z) == Mathf.Round(spawn.z))
             {
                 state = "Spawn";
-                timer = 3f;
+                timer = 5f;
                 rb.useGravity = true;
                 fs.enabled = true;
+                rb.detectCollisions = true;
                 accel = 1f;
             }
         }
@@ -86,6 +94,8 @@ public class SpriritMovement_Land : MonoBehaviour
                 fs.enabled = true;
             }
         }
+
+        transform.rotation = Quaternion.LookRotation((player.position - transform.position).normalized);
     }
 
     private void LateUpdate()
@@ -108,7 +118,7 @@ public class SpriritMovement_Land : MonoBehaviour
     public void ObtainSpiritLand()
     {
         state = "OnPlayer";
-        accel = 1f;
+        accel = 5f;
     }
 
     public void ReleaseSpiritLand()
@@ -120,10 +130,12 @@ public class SpriritMovement_Land : MonoBehaviour
     {
         state = "ForceMovement";
         forceMove = pos;
-        forceMove.y += 0.5f;
+        forceMove.y += 1.0f;
         forceRot = rot;
         accel = changeSpeed;
         fs.enabled = false;
         addF = true;
     }
+
+
 }

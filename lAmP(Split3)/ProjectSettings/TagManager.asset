@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spirit_Land
   - Spirit_Floating
+  - IgnoredSurface
   layers:
   - Default
   - TransparentFX
