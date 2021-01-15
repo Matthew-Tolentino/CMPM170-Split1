@@ -130,7 +130,7 @@ public class SpriritMovement_Land : MonoBehaviour
     {
         state = "ForceMovement";
         forceMove = pos;
-        forceMove.y += 1.0f;
+        //forceMove.y += 0.5f;
         forceRot = rot;
         accel = changeSpeed;
         fs.enabled = false;

@@ -33938,11 +33938,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1328406819}
-  radius: 6
+  radius: 2.68
   initialD: 0
-  verticalFluct: 0.45
-  initialF: 0
-  numVertFluct: 1.35
+  verticalFluct: 1.94
+  initialF: 0.75
+  numVertFluct: 1.8
   state: 
   speed: 2
   type: 
