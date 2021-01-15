@@ -23,12 +23,11 @@ public class Patroller : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
-        Debug.Log("This "+dist);
         if(dist < 1f)
         {
             
             IncreaseIndex();
-            UnityEngine.Debug.Log(waypointIndex);
+
         }
         Patrol();
     }

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
+using UnityEngine.UI;
 using UnityEngine;
 using Cinemachine;
 
@@ -7,17 +9,26 @@ public class ThirdPersonCameraMovement : MonoBehaviour
 {
     public CinemachineFreeLook freeLookCam;
 
-    public float topRigMin = 12.0f;
-    public float topRigMax = 15.0f;
-    public float midRigMin = 20.0f;
-    public float midRigMax = 25.0f;
-    public float botRigMin = 12.0f;
-    public float botRigMax = 15.0f;
+    [Header("Camera Rig")]
+    [Range(3.0f, 20.0f)]
+    public float rigMinLimit = 12.0f;
+    [Range(1.0f, 3.0f)]
+    public float zoomFactor = 1.25f;
+
+    private float topRigMin = 12.0f;
+    private float topRigMax = 15.0f;
+    private float midRigMin = 20.0f;
+    private float midRigMax = 25.0f;
+    private float botRigMin = 12.0f;
+    private float botRigMax = 15.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        topRigMin = botRigMin = rigMinLimit;
+        topRigMax = botRigMax = rigMinLimit * zoomFactor;
+        midRigMin = Mathf.Ceil(rigMinLimit * 1.66f);
+        midRigMax = midRigMin * zoomFactor;
     }
 
     // Update is called once per frame
