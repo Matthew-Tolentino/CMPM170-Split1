@@ -23,7 +23,7 @@ public class SpiritHandler : MonoBehaviour
         rotDegree += rotSpeed * Time.fixedDeltaTime;
         //Tester
         //------------------------------------------------------------------
-        if (Input.GetKeyDown("space")) loseSpirit();
+        //if (Input.GetKeyDown("space")) loseSpirit();
 
         if (Input.GetKeyDown("z")) callAbiliy();
         //------------------------------------------------------------------
@@ -33,7 +33,6 @@ public class SpiritHandler : MonoBehaviour
     {
         if (collision.gameObject.tag == "Spirit_Floating")
         {
-            FindObjectOfType<AudioManager>().Play("Dodoru");
             var pull = collision.gameObject.GetComponent<SpiritMovement_Floating>();
             if (pull.state != "Spawn") return;
             pull.ObtainSpiritFloating();
@@ -52,6 +51,7 @@ public class SpiritHandler : MonoBehaviour
             if (SpiritList[i] == null)
             {
                 SpiritList[i] = collision.gameObject;
+                FindObjectOfType<AudioManager>().Play("Dodoru");
                 break;
             }
         }
