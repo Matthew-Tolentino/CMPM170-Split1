@@ -10,7 +10,10 @@ public class RevealShaderScript : MonoBehaviour
 	private Renderer m_renderer = null;
     
 
-
+	private float min = 3f;
+	private float max = 6f;
+	public string state = "Off";
+	private float count = 0f;
 
     public Renderer Renderer{
     	get{
@@ -42,6 +45,33 @@ public class RevealShaderScript : MonoBehaviour
     		Debug.Log(m_objectToTrack);
     		MaterialRef.SetVector("_Vector3_Position", m_objectToTrack.position);
     	}
+
+    	if (Input.GetKeyDown("f") && state == "Off") state = "Off-On";
+
+    	if (state == "Off-On") {
+    		count += Time.fixedDeltaTime/10;
+    		if (count >= 1) {
+    			state = "On";
+    			count = 0;
+    		}
+    	}
+    	if (state == "On") {
+    		count += Time.fixedDeltaTime/2;
+    		if (count >= 1) {
+    			state = "On-Off";
+    			count = 1;
+    		}
+    	}
+    	if (state == "On-Off") {
+    		count -= Time.fixedDeltaTime;
+    		if (count <= 0) {
+    			state = "Off";
+    			count = 0;
+    		}
+    	}
+
+    	if (state != "On") MaterialRef.SetFloat("Vector1_Distance", (min + min*count));
+    	else MaterialRef.SetFloat("Vector1_Distance", (min + min));
     }
 
     private void OnDestory(){
