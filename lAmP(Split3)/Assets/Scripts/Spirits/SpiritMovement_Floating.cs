@@ -23,6 +23,11 @@ public class SpiritMovement_Floating : MonoBehaviour
     private float timer;
     private Collider fs;
 
+    // Dialog Code (Matthew) ---------------------
+    [HideInInspector]
+    public bool saidDialog = false;
+    // -------------------------------------------
+
     private void Start()
     {
         fs = GetComponent<Collider>();

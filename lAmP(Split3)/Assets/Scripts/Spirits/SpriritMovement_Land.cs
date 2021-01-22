@@ -22,6 +22,12 @@ public class SpriritMovement_Land : MonoBehaviour
     private Quaternion forceRot;
 
     private bool addF;
+
+    // Dialog Code (Matthew) ---------------------
+    [HideInInspector]
+    public bool saidDialog = false;
+    // -------------------------------------------
+
     // Start is called before the first frame update
     void Start()
     {

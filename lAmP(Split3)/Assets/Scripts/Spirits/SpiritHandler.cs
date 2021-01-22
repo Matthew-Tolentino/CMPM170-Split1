@@ -37,12 +37,20 @@ public class SpiritHandler : MonoBehaviour
             if (pull.state != "Spawn") return;
             pull.ObtainSpiritFloating();
             Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
+
+            // Dialog Code (Matthew) ---------------------
+            if (!pull.saidDialog) collision.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+            // -------------------------------------------
         }
         else if (collision.gameObject.tag == "Spirit_Land")
         {
             var pull = collision.gameObject.GetComponent<SpriritMovement_Land>();
             if (pull.state != "Spawn") return;
             pull.ObtainSpiritLand();
+
+            // Dialog Code (Matthew) ---------------------
+            if (!pull.saidDialog) collision.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+            // -------------------------------------------
         }
         else return;
 
