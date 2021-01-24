@@ -7627,6 +7627,35 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!1 &419097196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 178508, guid: 8142860b8f89a564faf152e3c8b743e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 685002155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &419097200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419097196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Fountain
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 20
+  OverrideMaxDistance: 65
 --- !u!1001 &427603910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13656,6 +13685,7 @@ GameObject:
   - component: {fileID: 473303577}
   - component: {fileID: 473303574}
   - component: {fileID: 473303578}
+  - component: {fileID: 473303579}
   m_Layer: 0
   m_Name: Rock_spirit
   m_TagString: Spirit_Land
@@ -13741,6 +13771,29 @@ MonoBehaviour:
     sentences:
     - Me Rock... Me like to sit and sleep...
     - zzZZZ...
+--- !u!114 &473303579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473303573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Spirits/Yeah
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &474542704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010377046070, guid: ddd082fb4672f6643be6891e17a84358,
@@ -18233,7 +18286,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772475204}
-  m_LocalRotation: {x: 0.23566099, y: 0.66460323, z: -0.23399398, w: 0.669338}
+  m_LocalRotation: {x: 0.23570688, y: 0.6644719, z: -0.2339478, w: 0.6694682}
   m_LocalPosition: {x: 175.06, y: 29.463001, z: 37.65}
   m_LocalScale: {x: 1, y: 1, z: 0.5063328}
   m_Children: []
@@ -22714,7 +22767,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012745135}
-  m_LocalRotation: {x: 0.23566096, y: 0.66460323, z: -0.23399395, w: 0.669338}
+  m_LocalRotation: {x: 0.23570685, y: 0.664472, z: -0.23394777, w: 0.6694682}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -35021,6 +35074,7 @@ GameObject:
   - component: {fileID: 1438438977}
   - component: {fileID: 1438438976}
   - component: {fileID: 1438438980}
+  - component: {fileID: 1438438981}
   m_Layer: 0
   m_Name: Float_Spirit
   m_TagString: Spirit_Floating
@@ -35111,6 +35165,29 @@ MonoBehaviour:
     name: Floaty
     sentences:
     - I am the floating spirit, I can help you wuth stuff...
+--- !u!114 &1438438981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438438975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Spirits/Dodoru
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1439229186
 PrefabInstance:
   m_ObjectHideFlags: 0

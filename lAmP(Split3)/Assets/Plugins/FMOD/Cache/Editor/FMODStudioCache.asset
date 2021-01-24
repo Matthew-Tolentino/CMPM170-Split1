@@ -26,7 +26,6 @@ MonoBehaviour:
   - {fileID: 114365702166747204}
   - {fileID: 114595653673924190}
   - {fileID: 114251505899720440}
-  - {fileID: 114910531009448404}
   EditorParameters:
   - {fileID: 114845816952724438}
   - {fileID: 114730555667419174}
@@ -34,8 +33,48 @@ MonoBehaviour:
   - {fileID: 114468842247498784}
   StringsBanks:
   - {fileID: 114593025129841732}
-  stringsBankWriteTime: 637470432841911602
+  stringsBankWriteTime: 637470445253955264
   cacheVersion: 6
+--- !u!114 &114024119934539424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/StepVariationNumber
+  m_EditorClassIdentifier: 
+  Name: StepVariationNumber
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &114079679986725416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/SurfaceType
+  m_EditorClassIdentifier: 
+  Name: SurfaceType
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &114122156215946262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +90,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637470432842674698
+  lastModified: 637470445255650737
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -94,11 +133,11 @@ MonoBehaviour:
   Banks:
   - {fileID: 114768609762566096}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
+  MinDistance: 1
+  MaxDistance: 20
   Length: 0
 --- !u!114 &114276346919100278
 MonoBehaviour:
@@ -163,8 +202,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114522046065249942}
-  - {fileID: 114655233401419194}
+  - {fileID: 114079679986725416}
+  - {fileID: 114024119934539424}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -188,7 +227,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114218411673467358}
+  - {fileID: 114859353164894492}
   MinDistance: 0
   MaxDistance: 0
   Length: 13368
@@ -207,7 +246,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637470432841931576
+  lastModified: 637470445254284394
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -248,7 +287,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637470432841901633
+  lastModified: 637470445253865500
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -274,6 +313,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &114539967510813974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Continuous/SurfaceType
+  m_EditorClassIdentifier: 
+  Name: SurfaceType
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &114593025129841732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,11 +348,11 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637470432841911602
+  lastModified: 637470445253955264
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1854
+    Value: 1810
   Exists: 1
 --- !u!114 &114595653673924190
 MonoBehaviour:
@@ -312,11 +371,11 @@ MonoBehaviour:
   Banks:
   - {fileID: 114768609762566096}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
+  MinDistance: 1
+  MaxDistance: 20
   Length: 0
 --- !u!114 &114606389489912260
 MonoBehaviour:
@@ -341,6 +400,46 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 23414
+--- !u!114 &114625078435787192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/SurfaceType
+  m_EditorClassIdentifier: 
+  Name: SurfaceType
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &114641386482763228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/StepVariationNumber
+  m_EditorClassIdentifier: 
+  Name: StepVariationNumber
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &114655233401419194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +460,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &114656754238163052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/StepVariationNumber
+  m_EditorClassIdentifier: 
+  Name: StepVariationNumber
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &114672629373644234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +523,26 @@ MonoBehaviour:
     data1: 572827177
     data2: 3791658874
   Exists: 1
+--- !u!114 &114751125992035118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Continuous/SurfaceType
+  m_EditorClassIdentifier: 
+  Name: SurfaceType
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &114768609762566096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,11 +558,11 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Spirits.bank
   Name: Spirits
   StudioPath: bank:/Spirits
-  lastModified: 637470432842684658
+  lastModified: 637470445255920033
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 20160
+    Value: 19360
   Exists: 1
 --- !u!114 &114845816952724438
 MonoBehaviour:
@@ -445,6 +584,26 @@ MonoBehaviour:
     data1: 2383209609
     data2: 521056460
   Exists: 1
+--- !u!114 &114859353164894492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Continuous/SurfaceType
+  m_EditorClassIdentifier: 
+  Name: SurfaceType
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &114910531009448404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,8 +618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Spirits/Yeah3d
   guid: 4bf6ee66fee2514081b0e5b329c5c23f
-  Banks:
-  - {fileID: 114768609762566096}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -488,3 +646,23 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &114930058383227356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/SurfaceType
+  m_EditorClassIdentifier: 
+  Name: SurfaceType
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0

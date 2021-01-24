@@ -59,7 +59,7 @@ public class SpiritHandler : MonoBehaviour
             if (SpiritList[i] == null)
             {
                 SpiritList[i] = collision.gameObject;
-                FindObjectOfType<AudioManager>().Play("Dodoru");
+                collision.gameObject.GetComponent<FMODUnity.StudioEventEmitter>().Play();
                 break;
             }
         }
