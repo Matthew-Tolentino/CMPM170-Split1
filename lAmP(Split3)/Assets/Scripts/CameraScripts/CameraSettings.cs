@@ -50,8 +50,16 @@ public class CameraSettings : MonoBehaviour
                 // Stop Camera Movement
                 freeLookCam.m_XAxis.m_InputAxisName = "";
                 freeLookCam.m_YAxis.m_InputAxisName = "";
+
+                // Spirit UI Code update after 1 second to give time to instantiate objects
+                Invoke(nameof(UpdateUI), 1f);
             }
         }
+    }
+
+    private void UpdateUI()
+    {
+        FindObjectOfType<PausedMenu>().displaySpiritsOnUI();
     }
 
     public void toggleXInversion()

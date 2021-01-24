@@ -10,13 +10,12 @@ public class PausedMenu : MonoBehaviour
 {
     public GameObject spriteUI;
 
-    private GameObject[] foundSpirits;
+    
     private List<string> spiritsInLevel;
     private GameObject spiritUIHolder;
 
     void Start()
     {
-        foundSpirits = FindObjectOfType<SpiritHandler>().SpiritList;
         spiritsInLevel = new List<string>();
         spiritUIHolder = GameObject.Find("SpiritUIHolder");
 
@@ -35,13 +34,16 @@ public class PausedMenu : MonoBehaviour
             child.name = spiritsInLevel[index] + "UI";
             child.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(spiritsInLevel[index++]);
         }
-
-        displaySpiritsOnUI();
     }
 
     // Checks to see what spirits have been found and updates UI
-    private void displaySpiritsOnUI()
+    public void displaySpiritsOnUI()
     {
+        GameObject[] foundSpirits = FindObjectOfType<SpiritHandler>().SpiritList;
+
+        Debug.Log(foundSpirits.Length);
+        Debug.Log(spiritsInLevel.Count);
+
         foreach (string spirit in spiritsInLevel)
         {
             GameObject tempSpiritUI = GameObject.Find(spirit + "UI");
