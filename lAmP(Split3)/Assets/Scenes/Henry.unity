@@ -6344,7 +6344,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338225801}
-  m_LocalRotation: {x: 0.2511774, y: 0.6609916, z: -0.25117737, w: 0.6609916}
+  m_LocalRotation: {x: 0.2511774, y: 0.66099167, z: -0.2511774, w: 0.66099167}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18286,7 +18286,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772475204}
-  m_LocalRotation: {x: 0.23570688, y: 0.6644719, z: -0.2339478, w: 0.6694682}
+  m_LocalRotation: {x: 0.23584482, y: 0.664077, z: -0.2338087, w: 0.6698601}
   m_LocalPosition: {x: 175.06, y: 29.463001, z: 37.65}
   m_LocalScale: {x: 1, y: 1, z: 0.5063328}
   m_Children: []
@@ -22767,7 +22767,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012745135}
-  m_LocalRotation: {x: 0.23570685, y: 0.664472, z: -0.23394777, w: 0.6694682}
+  m_LocalRotation: {x: 0.23584479, y: 0.664077, z: -0.2338087, w: 0.66986006}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22987,7 +22987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 20
   viewAngle: 68
-  myPlayer: {fileID: 1328406818}
+  myPlayer: {fileID: 193613143}
   targetMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -28201,7 +28201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 20
   viewAngle: 68
-  myPlayer: {fileID: 1328406818}
+  myPlayer: {fileID: 193613143}
   targetMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -31192,7 +31192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 18
   viewAngle: 117
-  myPlayer: {fileID: 1328406818}
+  myPlayer: {fileID: 193613143}
   targetMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -32694,7 +32694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 20
   viewAngle: 68
-  myPlayer: {fileID: 1328406818}
+  myPlayer: {fileID: 193613143}
   targetMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -34968,7 +34968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 20
   viewAngle: 133
-  myPlayer: {fileID: 1328406818}
+  myPlayer: {fileID: 193613143}
   targetMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -38503,7 +38503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 20
   viewAngle: 95
-  myPlayer: {fileID: 1328406818}
+  myPlayer: {fileID: 193613143}
   targetMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -39161,7 +39161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 20
   viewAngle: 68
-  myPlayer: {fileID: 1328406818}
+  myPlayer: {fileID: 193613143}
   targetMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -42296,7 +42296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 20
   viewAngle: 68
-  myPlayer: {fileID: 1328406818}
+  myPlayer: {fileID: 193613143}
   targetMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -44809,7 +44809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 20
   viewAngle: 133
-  myPlayer: {fileID: 1328406818}
+  myPlayer: {fileID: 193613143}
   targetMask:
     serializedVersion: 2
     m_Bits: 1024
