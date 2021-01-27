@@ -7734,6 +7734,7 @@ GameObject:
   - component: {fileID: 417433286}
   - component: {fileID: 417433285}
   - component: {fileID: 417433288}
+  - component: {fileID: 417433289}
   m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -7834,6 +7835,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  saidDialog: 0
+--- !u!114 &417433289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417433283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd2d65b7ff45714cb636d231c7bba19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Vulpecula
+    sentences:
+    - It's a pressure plate... I'll need someone heavy to push it down...
 --- !u!1 &419097196 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 178508, guid: 8142860b8f89a564faf152e3c8b743e7,
@@ -18562,7 +18580,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772475204}
-  m_LocalRotation: {x: 0.23584922, y: 0.6640644, z: -0.23380429, w: 0.6698726}
+  m_LocalRotation: {x: 0.23574601, y: 0.6643599, z: -0.23390831, w: 0.66957945}
   m_LocalPosition: {x: 175.06, y: 29.463001, z: 37.65}
   m_LocalScale: {x: 1, y: 1, z: 0.5063328}
   m_Children: []
@@ -23181,7 +23199,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012745135}
-  m_LocalRotation: {x: 0.23584919, y: 0.6640644, z: -0.23380427, w: 0.6698725}
+  m_LocalRotation: {x: 0.23574598, y: 0.6643599, z: -0.23390831, w: 0.66957945}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

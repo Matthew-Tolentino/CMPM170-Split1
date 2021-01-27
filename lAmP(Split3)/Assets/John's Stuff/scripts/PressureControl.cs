@@ -5,13 +5,21 @@ using UnityEngine;
 public class PressureControl : MonoBehaviour
 {
     public GameObject door;
-
     public GameObject myPlayer;
+    
     public bool onButton;
+    
     private SpiritHandler spiritRef;
+    
     public GameObject[] lastTouched;
+
     private int current;
     private Vector3 init;
+
+    // Dialog Code
+    [HideInInspector]
+    public bool saidDialog = false;
+
     private void Start()
     {
         current = 0;
@@ -37,6 +45,7 @@ public class PressureControl : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        saidDialog = true;
         if (col.gameObject.tag == "Spirit_Land"){
             //door.transform.position = new Vector3(0, -50, 0);
             for (int i = 0; i < current; ++i){
