@@ -35,7 +35,7 @@ public class VisionField : MonoBehaviour
         for(int r = 0; r < SpiritRef.SpiritList.Length; r++){
             if(SpiritRef.SpiritList != null && SpiritRef.SpiritList[r] != null ){
                 if(SpiritRef.SpiritList[r].tag == "Spirit_Floating"){
-                    Debug.Log("ON");
+                    
                     visionLight.intensity = 100;
                     visionLight.spotAngle = Vision.viewAngle;
                     visionLight.range = Vision.viewRadius;
@@ -49,9 +49,9 @@ public class VisionField : MonoBehaviour
             }
             
         }
-        Debug.Log(count);
+        
         if(count == SpiritRef.SpiritList.Length){
-            Debug.Log("OFF");
+            
             visionLight.intensity = 0;
             visionLight.spotAngle = 0;
             visionLight.range = 0;
