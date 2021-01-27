@@ -14,8 +14,12 @@ public class FieldOfView : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
+    public Light visionLight;
+
     [HideInInspector]
     public List<Transform> visibleTargets = new List<Transform>();
+
+    
 
     private void Start()
     {
@@ -28,6 +32,7 @@ public class FieldOfView : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(delay);
+           // CheckLight();
             FindVisibleTargets();
         }
     }
@@ -35,19 +40,29 @@ public class FieldOfView : MonoBehaviour
     void FindVisibleTargets()
     {
         visibleTargets.Clear();
+        //CheckLight();
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
-        for(int i = 0; i < targetsInViewRadius.Length; i++)
+        for(int i = 0; i < targetsInViewRadius.Length-1; i++)
         {
             Transform target = targetsInViewRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
+            /*for(int r = 0; r < spiritRef.SpiritList.Length-1; r++){
+                    if(spiritRef.SpiritList[r].tag == "Spirit_Floating"){
+                        visionLight.intensity = 100;
+                        visionLight.spotAngle = viewAngle;
+                        visionLight.range = viewRadius;
+                    }
+                    else{
+                        visionLight.intensity = 0;
+                    }
+            }*/
             if(Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
                 
                 if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
-                    //Destroy(myPlayer);
                     spiritRef.loseSpirit();
                     visibleTargets.Add(target);
                 }
@@ -62,5 +77,19 @@ public class FieldOfView : MonoBehaviour
             angleInDegrees += transform.eulerAngles.y;
         }
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+    }
+
+    public void CheckLight()
+    {
+        for(int r = 0; r < spiritRef.SpiritList.Length-1; r++){
+                    if(spiritRef.SpiritList[r].tag == "Spirit_Floating"){
+                        visionLight.intensity = 100;
+                        visionLight.spotAngle = viewAngle;
+                        visionLight.range = viewRadius;
+                    }
+                    else{
+                        visionLight.intensity = 0;
+                    }
+        }
     }
 }
