@@ -40,21 +40,22 @@ public class PausedMenu : MonoBehaviour
     public void displaySpiritsOnUI()
     {
         GameObject[] foundSpirits = FindObjectOfType<SpiritHandler>().SpiritList;
-
-        Debug.Log(foundSpirits.Length);
-        Debug.Log(spiritsInLevel.Count);
-
+        
         foreach (string spirit in spiritsInLevel)
         {
             GameObject tempSpiritUI = GameObject.Find(spirit + "UI");
             Image img = tempSpiritUI.GetComponent<Image>();
             Color tmpColor = img.color;
-            if (Array.Exists(foundSpirits, ele => ele.name == spirit))
+            for (int i = 0; i < foundSpirits.Length; i++)
             {
-                // Change found spirits in UI to have a solid alpha
-                tmpColor.a = 1f;
-            } else
-            {
+                if (foundSpirits[i] != null)
+                {
+                    if (foundSpirits[i].name == spirit)
+                    {
+                        tmpColor.a = 1f;
+                        break;
+                    }
+                }
                 tmpColor.a = 0.3f;
             }
             img.color = tmpColor;

@@ -37,7 +37,7 @@ public class Animation_Handler : MonoBehaviour
         }
         else if ((Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")) && Input.GetKey(KeyCode.LeftShift))
         {
-            Debug.Log("RUNNING");
+            //Debug.Log("RUNNING");
             animator.SetBool("isJumping", false);
             animator.SetBool("isSprinting", true);
             animator.SetBool("isPointing", false);
@@ -46,7 +46,7 @@ public class Animation_Handler : MonoBehaviour
         }
         else if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d") )
         {
-            Debug.Log("WALKING");
+            //Debug.Log("WALKING");
             animator.SetBool("isJumping", false);
             animator.SetBool("isWalking", true);
             animator.SetBool("isPointing", false);
@@ -56,7 +56,7 @@ public class Animation_Handler : MonoBehaviour
         
         else
         {
-            Debug.Log("STANDING");
+            //Debug.Log("STANDING");
             animator.SetBool("isJumping", false);
             animator.SetBool("isWalking", false);
             animator.SetBool("isSprinting", false);
