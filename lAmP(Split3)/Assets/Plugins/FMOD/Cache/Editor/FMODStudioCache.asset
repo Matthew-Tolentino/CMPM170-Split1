@@ -33,8 +33,28 @@ MonoBehaviour:
   - {fileID: 114468842247498784}
   StringsBanks:
   - {fileID: 114593025129841732}
-  stringsBankWriteTime: 637473495421582820
+  stringsBankWriteTime: 637474447842545593
   cacheVersion: 6
+--- !u!114 &114017381259646700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Continuous/SurfaceType
+  m_EditorClassIdentifier: 
+  Name: SurfaceType
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &114024119934539424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +110,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637473495422361037
+  lastModified: 637474447843376305
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -242,8 +262,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114299342306105516}
-  - {fileID: 114231555364612566}
+  - {fileID: 114877326843181162}
+  - {fileID: 114460380225803610}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -267,7 +287,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114949806426215704}
+  - {fileID: 114017381259646700}
   MinDistance: 0
   MaxDistance: 0
   Length: 13368
@@ -286,7 +306,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637470432841931576
+  lastModified: 637474447842565609
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -312,6 +332,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &114460380225803610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/StepVariationNumber
+  m_EditorClassIdentifier: 
+  Name: StepVariationNumber
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &114468842247498784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +367,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637473495421580836
+  lastModified: 637474447842540591
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -408,7 +448,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637473495421582820
+  lastModified: 637474447842545593
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -638,7 +678,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Spirits.bank
   Name: Spirits
   StudioPath: bank:/Spirits
-  lastModified: 637473495422371008
+  lastModified: 637474447843391320
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -675,6 +715,26 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/Footsteps_Continuous/SurfaceType
+  m_EditorClassIdentifier: 
+  Name: SurfaceType
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &114877326843181162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/SurfaceType
   m_EditorClassIdentifier: 
   Name: SurfaceType
   Min: 0
