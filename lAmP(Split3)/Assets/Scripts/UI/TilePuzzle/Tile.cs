@@ -7,6 +7,7 @@ public class Tile : MonoBehaviour
     public event System.Action OnFinishedMoving;
 
     public Vector2Int position;
+    public Vector2Int startingPos;
 
     public void MoveTileToPosition(Vector3 target, float duration)
     {
@@ -31,5 +32,10 @@ public class Tile : MonoBehaviour
         {
             OnFinishedMoving();
         }
+    }
+
+    public bool AtStartingPos()
+    {
+        return position == startingPos;
     }
 }

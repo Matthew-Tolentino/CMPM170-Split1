@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 // Script must be attached to canvas on which ut displays
 public class Puzzle : MonoBehaviour
@@ -10,6 +11,9 @@ public class Puzzle : MonoBehaviour
     public int shuffleTimes = 30;
     public float moveDuration = .2f;
     public float shuffleMoveDuration = .1f;
+
+    enum PuzzleState { Solved, Shuffling, InPlay}
+    PuzzleState state;
 
     private Tile[,] tiles;
     private int shuffleMovesLeft = 0;
@@ -26,7 +30,7 @@ public class Puzzle : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        if (state == PuzzleState.Solved && Input.GetKeyDown(KeyCode.O))
         {
             Debug.Log("Starting Shuffle");
             StartShuffle();
@@ -42,6 +46,7 @@ public class Puzzle : MonoBehaviour
             Tile tile = child.gameObject.AddComponent<Tile>();
             tile.OnFinishedMoving += OnTileFinishedMoving;
             tiles[posx, posy] = tile;
+            tile.startingPos = new Vector2Int(posx, posy);
             tile.position = new Vector2Int(posx, posy++);
             if (posy == 3)
             {
@@ -59,7 +64,10 @@ public class Puzzle : MonoBehaviour
 
     private void PlayerMove(Tile tileToMove)
     {
-        inputs.Enqueue(tileToMove); 
+        if (state == PuzzleState.InPlay)
+        {
+            inputs.Enqueue(tileToMove);
+        }
     }
 
     private void MoveTile(Tile tileToMove, float duration)
@@ -96,19 +104,30 @@ public class Puzzle : MonoBehaviour
     private void OnTileFinishedMoving()
     {
         tileIsMoving = false;
+        CheckIfSolved();
 
-        MakeNextPlayerMove();
-
-        if (shuffleMovesLeft > 0)
+        if (state == PuzzleState.InPlay)
         {
-            ShuffleMove();
+            MakeNextPlayerMove();
+        }
+        else if (state == PuzzleState.Shuffling)
+        {
+            if (shuffleMovesLeft > 0)
+            {
+                ShuffleMove();
+            } else
+            {
+                state = PuzzleState.InPlay;
+            }
         }
     }
 
     // Call this method to start shuffling
     public void StartShuffle()
     {
+        state = PuzzleState.Shuffling;
         shuffleMovesLeft = shuffleTimes;
+        SwitchEmptyTileVisibility(false);
         ShuffleMove();
     }
 
@@ -133,6 +152,37 @@ public class Puzzle : MonoBehaviour
                 }
             }
         }
+    }
 
+    void CheckIfSolved()
+    {
+        foreach (Tile tile in tiles)
+        {
+            if (!tile.AtStartingPos())
+            {
+                return;
+            }
+        }
+        state = PuzzleState.Solved;
+
+        // Show final piece of Puzzle
+        SwitchEmptyTileVisibility(true);
+        Invoke(nameof(ClosePuzzle), 1f);
+    }
+
+    void SwitchEmptyTileVisibility(bool visible)
+    {
+        Image tileImage = emptyTile.GetComponent<Image>();
+        Color tempColor = tileImage.color;
+        if (!visible) tempColor.a = 0f;
+        else tempColor.a = 1f;
+        tileImage.color = tempColor;
+    }
+
+    void ClosePuzzle()
+    {
+        gameObject.SetActive(false);
+
+        // TODO: Add code here to open gate or something after finishing puzzle
     }
 }

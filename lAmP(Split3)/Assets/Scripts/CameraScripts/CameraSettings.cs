@@ -16,11 +16,6 @@ public class CameraSettings : MonoBehaviour
     public Slider ySense;
 
     public GameObject escMenu;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
