@@ -25,7 +25,7 @@ public class Puzzle : MonoBehaviour
     void Awake()
     {
         tiles = new Tile[3, 3];
-        //makePuzzle();
+        makePuzzle();
     }
 
     void Update()
@@ -43,6 +43,8 @@ public class Puzzle : MonoBehaviour
         int posy = 0;
         foreach (Transform child in gameObject.transform)
         {
+            if (child.name == "Close") break; // Check to if done with tile children
+
             Tile tile = child.gameObject.AddComponent<Tile>();
             tile.OnFinishedMoving += OnTileFinishedMoving;
             tiles[posx, posy] = tile;
