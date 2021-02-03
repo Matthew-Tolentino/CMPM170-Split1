@@ -81,7 +81,7 @@ public class FieldOfView : MonoBehaviour
 
     public void CheckLight()
     {
-        for(int r = 0; r < spiritRef.SpiritList.Length-1; r++){
+        for(int r = 0; r < spiritRef.SpiritList.Count-1; r++){
                     if(spiritRef.SpiritList[r].tag == "Spirit_Floating"){
                         visionLight.intensity = 100;
                         visionLight.spotAngle = viewAngle;

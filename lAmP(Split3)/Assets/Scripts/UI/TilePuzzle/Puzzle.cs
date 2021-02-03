@@ -25,7 +25,7 @@ public class Puzzle : MonoBehaviour
     void Awake()
     {
         tiles = new Tile[3, 3];
-        makePuzzle();
+        //makePuzzle();
     }
 
     void Update()

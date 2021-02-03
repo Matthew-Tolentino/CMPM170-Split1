@@ -39,14 +39,14 @@ public class PausedMenu : MonoBehaviour
     // Checks to see what spirits have been found and updates UI
     public void displaySpiritsOnUI()
     {
-        GameObject[] foundSpirits = FindObjectOfType<SpiritHandler>().SpiritList;
+        List <GameObject> foundSpirits = FindObjectOfType<SpiritHandler>().SpiritList;
         
         foreach (string spirit in spiritsInLevel)
         {
             GameObject tempSpiritUI = GameObject.Find(spirit + "UI");
             Image img = tempSpiritUI.GetComponent<Image>();
             Color tmpColor = img.color;
-            for (int i = 0; i < foundSpirits.Length; i++)
+            for (int i = 0; i < foundSpirits.Count; i++)
             {
                 if (foundSpirits[i] != null)
                 {

@@ -57,7 +57,7 @@ public class SpriritMovement_Land : MonoBehaviour
         {
             moveTo = player.position;
             //moveTo.y = transform.position.y;
-            if (Vector3.Distance(transform.position, player.position) < 2.5f) {
+            if (Vector3.Distance(transform.position, player.position) < 3f) {
                 state = "OnPlayer_Idle";
                 accel = 1f;
             }
@@ -66,7 +66,7 @@ public class SpriritMovement_Land : MonoBehaviour
         {   
             rb.useGravity = true;
             fs.enabled = true;
-            if (Vector3.Distance(transform.position, player.position) > 3.5f) state = "OnPlayer";
+            if (Vector3.Distance(transform.position, player.position) > 4f) state = "OnPlayer";
         }
         else if (state == "ReturnToSpawn")
         {

@@ -1,33 +1,42 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpiritHandler : MonoBehaviour
 {
-    public static float rotDegree;
+	public List<GameObject> SpiritList;
+	public static float rotDegree;
     public float rotSpeed;
 
-    public GameObject[] SpiritList;
+    public bool triggerLamp;
 
+    private int numFloaters;
+    public int selectedSpirit;
     public bool ability;
+
 
     void Start()
     {
-        rotDegree = 0f;
-        ability = false;
+    	SpiritList = new List<GameObject>();
+    	rotDegree = 0f;
+    	numFloaters = 0;
+    	selectedSpirit = -1;
+    	ability = false;
+        triggerLamp = false;
     }
+
 
 
     void Update()
     {
-        rotDegree += rotSpeed * Time.fixedDeltaTime;
-        //Tester
-        //------------------------------------------------------------------
-        //if (Input.GetKeyDown("space")) loseSpirit();
+    	rotDegree += rotSpeed * Time.fixedDeltaTime;
 
-        if (Input.GetKeyDown("z")) callAbiliy();
-        //------------------------------------------------------------------
+    	if (Input.GetKeyDown("r")) callAbility();
+    	if (Input.GetKeyDown("q")) decrementSelect();
+    	if (Input.GetKeyDown("e")) incrementSelect();
     }
+
+
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -35,7 +44,7 @@ public class SpiritHandler : MonoBehaviour
         {
             var pull = collision.gameObject.GetComponent<SpiritMovement_Floating>();
             if (pull.state != "Spawn") return;
-            pull.ObtainSpiritFloating();
+            pull.ObtainSpiritFloating(numFloaters++);
             Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
 
             // Dialog Code (Matthew) ---------------------
@@ -54,66 +63,73 @@ public class SpiritHandler : MonoBehaviour
         }
         else return;
 
-        for (int i = 0; i < 6; ++i)
-        {
-            if (SpiritList[i] == null)
-            {
-                SpiritList[i] = collision.gameObject;
-                collision.gameObject.GetComponent<FMODUnity.StudioEventEmitter>().Play();
-                break;
-            }
-        }
-    
-
-
+        SpiritList.Add(collision.gameObject);
+        if (selectedSpirit == -1) selectedSpirit = 0;
     }
+
+
 
     public void loseSpirit()
     {
-        int i = 0;
-        while (i < 6)
-        {
-            if (SpiritList[i] == null)
-                ++i;
-            else
-            {
-                if (SpiritList[i].tag == "Spirit_Floating")
-                {
-                    var pull = SpiritList[i].GetComponent<SpiritMovement_Floating>();
-                    pull.ReleaseSpiritFloating();
-                    Physics.IgnoreCollision(SpiritList[i].GetComponent<Collider>(), GetComponent<Collider>(), false);
-                }
-                else if (SpiritList[i].tag == "Spirit_Land")
-                {
-                    var pull = SpiritList[i].GetComponent<SpriritMovement_Land>();
-                    pull.ReleaseSpiritLand();
-                }
-                SpiritList[i] = null;
-                return;
-            }
+        if (SpiritList.Count == 0) return;
+        int removeIndex = SpiritList.Count - 1;
+
+        if (SpiritList[removeIndex].tag == "Spirit_Floating") --numFloaters;
+        SpiritList.RemoveAt(removeIndex);
+        if (removeIndex == selectedSpirit) {
+        	--selectedSpirit;
+        	if (ability) callAbility();
         }
     }
 
-    private void callAbiliy()
+
+
+    private void callAbility()
     {
-        for (int i = 0; i < 6; ++i)
-        {
-            if (SpiritList[i].tag == "Spirit_Land")
-            {
-                var pull = SpiritList[i].GetComponent<SpriritMovement_Land>();
-                if (!ability)
-                {
-                    Vector3 got = transform.position + transform.forward * 4f;
+    	if (SpiritList[selectedSpirit].tag == "Spirit_Land")
+    	{
+    		var pull = SpiritList[selectedSpirit].GetComponent<SpriritMovement_Land>();
+    		if (pull.type == "Sit") 
+    		{
+    			if (!ability)
+    			{
+    				Vector3 got = transform.position + transform.forward * 4f;
                     pull.abilityMove(got);
                     ability = true;
-                }
-                else
-                {
-                    pull.ObtainSpiritLand();
+    			}
+    			else
+    			{
+    				pull.ObtainSpiritLand();
                     ability = false;
-                }
-                return;
-            }
-        }
+    			}
+    			return;
+    		}
+
+    		else return;
+    	}
+
+    	else if (SpiritList[selectedSpirit].tag == "Spirit_Floating")
+    	{
+    		var pull = SpiritList[selectedSpirit].gameObject.GetComponent<SpiritMovement_Floating>();
+            triggerLamp = true;
+    	}
     }
+
+
+
+    private void incrementSelect()
+    {
+    	if (selectedSpirit == -1) return;
+    	else if (selectedSpirit == SpiritList.Count - 1) selectedSpirit = 0;
+    	else ++selectedSpirit;
+        if (ability) callAbility();
+    }
+    private void decrementSelect()
+    {
+    	if (selectedSpirit == -1) return;
+    	else if (selectedSpirit == 0) selectedSpirit = SpiritList.Count - 1;
+    	else --selectedSpirit;
+        if (ability) callAbility();
+    }
+
 }

@@ -69,9 +69,10 @@ public class SpiritMovement_Floating : MonoBehaviour
             
     }
 
-    public void ObtainSpiritFloating()
+    public void ObtainSpiritFloating(int d)
     {   
         state = "OnPlayer";
+        initialD = d;
     }
 
     public void ReleaseSpiritFloating()
