@@ -7711,6 +7711,7 @@ GameObject:
   - component: {fileID: 193613148}
   - component: {fileID: 193613145}
   - component: {fileID: 193613147}
+  - component: {fileID: 193613149}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -7802,6 +7803,19 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &193613149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193613143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f59cb131dfbe8c4f91dc4bbe49247c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedSpiritText: {fileID: 350777277}
 --- !u!4 &195956052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4388669660258538, guid: 8098f6408c402e040b94496e38082156,
@@ -9806,7 +9820,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325256241}
-  m_LocalRotation: {x: 0.16133955, y: 0.68845445, z: -0.16133952, w: 0.68845457}
+  m_LocalRotation: {x: 0.16133954, y: 0.68845445, z: -0.16133952, w: 0.6884545}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -51326,7 +51340,7 @@ MonoBehaviour:
   numVertFluct: 1.8
   state: 
   speed: 2
-  type: 
+  type: Bunny
   saidDialog: 0
 --- !u!136 &1438438977
 CapsuleCollider:

@@ -67,6 +67,7 @@ public class SpiritHandler : MonoBehaviour
 
         SpiritList.Add(collision.gameObject);
         if (selectedSpirit == -1) selectedSpirit = 0;
+        nameSelected();
     }
 
 
@@ -94,6 +95,7 @@ public class SpiritHandler : MonoBehaviour
         	--selectedSpirit;
         	if (ability) callAbility();
         }
+        nameSelected();
     }
 
 
@@ -140,6 +142,8 @@ public class SpiritHandler : MonoBehaviour
         }
     	if (selectedSpirit == SpiritList.Count - 1) selectedSpirit = 0;
     	else ++selectedSpirit;
+    	nameSelected();
+
     }
     private void decrementSelect()
     {
@@ -150,6 +154,27 @@ public class SpiritHandler : MonoBehaviour
         }
     	if (selectedSpirit == 0) selectedSpirit = SpiritList.Count - 1;
     	else --selectedSpirit;
+    	nameSelected();
     }
+
+    private void nameSelected(){
+    	var send = GetComponent<PlayerUI>();
+    	string type = "";
+    	if (selectedSpirit == -1) type = "none";
+    	else if (SpiritList[selectedSpirit].tag == "Spirit_Land")
+    	{
+    		var pull = SpiritList[selectedSpirit].GetComponent<SpriritMovement_Land>();
+    		if (pull.type == "Sit") type = "Rock";
+    	}
+    	else if (SpiritList[selectedSpirit].tag == "Spirit_Floating")
+    	{
+    		var pull = SpiritList[selectedSpirit].gameObject.GetComponent<SpiritMovement_Floating>();
+            if (pull.type == "Bunny") type = "Bunny";
+    	}
+    	if (type == "") type = "undefined";
+
+    	send.SelectSpirit(type);
+    }
+
 
 }
