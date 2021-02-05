@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ToSpiritWorldController : MonoBehaviour
 {
-	private string state;
+	//private string state;
 	private Collider c;
 	private MeshRenderer mesh;
     // Start is called before the first frame update
     void Start()
     {
-        state = "Human";
+        //state = "Human";
         c = GetComponent<Collider>();
         mesh = GetComponent<MeshRenderer>();
     }
@@ -24,12 +24,12 @@ public class ToSpiritWorldController : MonoBehaviour
     public void ToSpirit(){
     	c.enabled = false;
     	mesh.enabled = false;
-    	state = "Spirit";
+    	//state = "Spirit";
     }
 
     public void ToHuman(){
     	c.enabled = true;
     	mesh.enabled = true;
-		state = "Human";
+		//state = "Human";
     }
 }

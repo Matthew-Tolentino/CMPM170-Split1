@@ -76,7 +76,19 @@ public class SpiritHandler : MonoBehaviour
         if (SpiritList.Count == 0) return;
         int removeIndex = SpiritList.Count - 1;
 
-        if (SpiritList[removeIndex].tag == "Spirit_Floating") --numFloaters;
+        if (SpiritList[removeIndex].tag == "Spirit_Floating")
+        {
+            var pull = SpiritList[removeIndex].GetComponent<SpiritMovement_Floating>();
+            pull.ReleaseSpiritFloating();
+            Physics.IgnoreCollision(SpiritList[removeIndex].GetComponent<Collider>(), GetComponent<Collider>(), false);
+            --numFloaters;
+        }
+        else if (SpiritList[removeIndex].tag == "Spirit_Land")
+        {
+            var pull = SpiritList[removeIndex].GetComponent<SpriritMovement_Land>();
+            pull.ReleaseSpiritLand();
+        }
+
         SpiritList.RemoveAt(removeIndex);
         if (removeIndex == selectedSpirit) {
         	--selectedSpirit;
@@ -122,16 +134,22 @@ public class SpiritHandler : MonoBehaviour
     private void incrementSelect()
     {
     	if (selectedSpirit == -1) return;
-    	else if (selectedSpirit == SpiritList.Count - 1) selectedSpirit = 0;
+    	if (ability) {
+        	callAbility();
+        	ability = !ability;
+        }
+    	if (selectedSpirit == SpiritList.Count - 1) selectedSpirit = 0;
     	else ++selectedSpirit;
-        if (ability) callAbility();
     }
     private void decrementSelect()
     {
     	if (selectedSpirit == -1) return;
-    	else if (selectedSpirit == 0) selectedSpirit = SpiritList.Count - 1;
+    	if (ability) {
+        	callAbility();
+        	ability = !ability;
+        }
+    	if (selectedSpirit == 0) selectedSpirit = SpiritList.Count - 1;
     	else --selectedSpirit;
-        if (ability) callAbility();
     }
 
 }

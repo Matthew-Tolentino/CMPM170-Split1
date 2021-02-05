@@ -20,7 +20,6 @@ public class SpiritMovement_Floating : MonoBehaviour
     public float speed;
 
     public string type;
-    private float timer;
     private Collider fs;
 
     // Dialog Code (Matthew) ---------------------
@@ -35,7 +34,6 @@ public class SpiritMovement_Floating : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         state = "Spawn";
         if (type == "") type = "NULL";
-        timer = 5f;
     }
 
     private void Update()
