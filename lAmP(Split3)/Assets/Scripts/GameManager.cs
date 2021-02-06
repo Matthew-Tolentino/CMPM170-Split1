@@ -4,14 +4,32 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Makes GameManager into a singleton
+    public static GameManager instance;
+
     public static bool gameIsPaused = false;
 
     public GameObject pauseMenuCanvasUI;
     public GameObject pauseMenuUI;
 
+    // Make sure there is only 1 GameManager
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this);
+        }
+        DontDestroyOnLoad(this);
+    }
+
     void Update()
     {
         // All player key press logic goes here
+        // Pause game
         if (InputManager.instance.KeyDown("Pause"))
         {
             if (gameIsPaused)
@@ -22,6 +40,12 @@ public class GameManager : MonoBehaviour
             {
                 Pause();
             }
+        }
+
+        // Next Dialogue
+        if (InputManager.instance.KeyDown("NextDialogue"))
+        {
+            DialogueManager.instance.DisplayNextSentence();
         }
     }
 
@@ -55,7 +79,7 @@ public class GameManager : MonoBehaviour
         pauseMenuUI.GetComponent<PausedMenu>().displaySpiritsOnUI();
     }
 
-    public static void setMouseLock(bool isLocked)
+    public void setMouseLock(bool isLocked)
     {
         if (isLocked)
         {

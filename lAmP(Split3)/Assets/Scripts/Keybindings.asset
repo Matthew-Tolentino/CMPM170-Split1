@@ -15,3 +15,4 @@ MonoBehaviour:
   jump: 32
   spiritAbility: 114
   pause: 27
+  nextDialogue: 102

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿// Code based on Brackeys: https://www.youtube.com/watch?v=_nRzoTzeyxU&t=783s
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,12 +7,29 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    // Makes DialogueManager into a singleton
+    public static DialogueManager instance;
+
     public TextMeshProUGUI nameTxt;
     public TextMeshProUGUI dialogueTxt;
 
     public Animator animator;
 
     private Queue<string> sentences;
+
+    // Make sure there is only 1 DialogueManager
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this);
+        }
+        DontDestroyOnLoad(this);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +38,13 @@ public class DialogueManager : MonoBehaviour
     }
 
     // TODO: Implement overall input manager
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            DisplayNextSentence();
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.F))
+    //    {
+    //        DisplayNextSentence();
+    //    }
+    //}
 
     public void StartDialogue(Dialogue dialogue)
     {

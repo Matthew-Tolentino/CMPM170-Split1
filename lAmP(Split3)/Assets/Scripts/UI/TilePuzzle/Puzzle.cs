@@ -185,6 +185,7 @@ public class Puzzle : MonoBehaviour
     {
         gameObject.SetActive(false);
 
+        GameManager.instance.setMouseLock(true);
         // TODO: Add code here to open gate or something after finishing puzzle
     }
 }

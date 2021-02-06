@@ -11,16 +11,20 @@ public class TilePuzzleTrigger : MonoBehaviour
         Debug.Log("Collided");
         if (other.gameObject.CompareTag("Player"))
         {
-            startTilePuzzle();
+            StartTilePuzzle();
         }
     }
 
-    private void startTilePuzzle()
+    private void StartTilePuzzle()
     {
         TilePuzzleCanvas.SetActive(true);
-        TilePuzzleCanvas.GetComponent<Puzzle>().StartShuffle();
+        Invoke(nameof(CallShuffle), 1f);
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        GameManager.instance.setMouseLock(false);
+    }
+
+    private void CallShuffle()
+    {
+        TilePuzzleCanvas.GetComponent<Puzzle>().StartShuffle();
     }
 }
