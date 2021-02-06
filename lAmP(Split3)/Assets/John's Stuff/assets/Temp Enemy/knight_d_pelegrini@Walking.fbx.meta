@@ -145,12 +145,27 @@ ModelImporter:
     4300000: Head_Hands
     4300002: Body
     4300004: Lower_Armor
-    7400000: mixamo.com
+    7400000: Walking
     9500000: //RootNode
     13700000: Body
     13700002: Head_Hands
     13700004: Lower_Armor
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Knight_diffuse
+    second: {fileID: 2800000, guid: 250edfab76b96e743b1322257c936147, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Knight_normal
+    second: {fileID: 2800000, guid: c6ccf1f8877a2f145af49c5805e09996, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Knight_specular
+    second: {fileID: 2800000, guid: cbc54cd7a5603004ba8e989d44231596, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -177,7 +192,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walking
+      takeName: mixamo.com
+      firstFrame: 0
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

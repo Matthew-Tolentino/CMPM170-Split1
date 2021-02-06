@@ -14,6 +14,8 @@ public class SpiritHandler : MonoBehaviour
     public int selectedSpirit;
     public bool ability;
 
+    
+
 
     void Start()
     {
