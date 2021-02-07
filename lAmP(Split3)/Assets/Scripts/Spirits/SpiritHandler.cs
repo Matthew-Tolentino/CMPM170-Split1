@@ -33,9 +33,9 @@ public class SpiritHandler : MonoBehaviour
     {
     	rotDegree += rotSpeed * Time.fixedDeltaTime;
 
-    	if (Input.GetKeyDown("r")) callAbility();
-    	if (Input.GetKeyDown("q")) decrementSelect();
-    	if (Input.GetKeyDown("e")) incrementSelect();
+    	if (InputManager.instance.KeyDown("SpiritAbility")) callAbility();
+    	if (InputManager.instance.KeyDown("SpiritDec")) decrementSelect();
+    	if (InputManager.instance.KeyDown("SpiritInc")) incrementSelect();
     }
 
 
@@ -129,7 +129,7 @@ public class SpiritHandler : MonoBehaviour
     	else if (SpiritList[selectedSpirit].tag == "Spirit_Floating")
     	{
     		var pull = SpiritList[selectedSpirit].gameObject.GetComponent<SpiritMovement_Floating>();
-            triggerLamp = true;
+            if (pull.type == "Lamp") triggerLamp = true;
     	}
     }
 
@@ -172,6 +172,7 @@ public class SpiritHandler : MonoBehaviour
     	{
     		var pull = SpiritList[selectedSpirit].gameObject.GetComponent<SpiritMovement_Floating>();
             if (pull.type == "Bunny") type = "Bunny";
+            if (pull.type == "Lamp") type = "Lamp";
     	}
     	if (type == "") type = "undefined";
 

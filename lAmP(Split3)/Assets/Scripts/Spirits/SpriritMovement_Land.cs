@@ -52,21 +52,31 @@ public class SpriritMovement_Land : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (state == "OnPlayer")
         {
             moveTo = player.position;
             //moveTo.y = transform.position.y;
-            if (Vector3.Distance(transform.position, player.position) < 3f) {
+            if (Vector3.Distance(transform.position, player.position) < 4f) {
                 state = "OnPlayer_Idle";
                 accel = 1f;
+                timer = 5f;
+            }
+            timer -= Time.deltaTime;
+            if (timer <= 0 ) {
+                rb.detectCollisions = false;
+                timer = 5f;
             }
         }
         else if (state == "OnPlayer_Idle")
         {   
+            rb.detectCollisions = true;
+            moveTo = transform.position;
             rb.useGravity = true;
             fs.enabled = true;
-            if (Vector3.Distance(transform.position, player.position) > 4f) state = "OnPlayer";
+            if (Vector3.Distance(transform.position, player.position) > 5f) {
+                state = "OnPlayer";
+                timer = 5f;
+            }
         }
         else if (state == "ReturnToSpawn")
         {
@@ -91,12 +101,14 @@ public class SpriritMovement_Land : MonoBehaviour
             }
         }
         else if (state == "ForceMovement")
-        {
+        {   
             moveTo = forceMove;
             transform.rotation = forceRot;
             if (Mathf.Round(transform.position.x) == Mathf.Round(forceMove.x) && Mathf.Round(transform.position.z) == Mathf.Round(forceMove.z))
             {
                 state = "ForcedMovent_Idle";
+                accel = 1f;
+                rb.detectCollisions = true;
                 fs.enabled = true;
             }
         }
@@ -116,7 +128,7 @@ public class SpriritMovement_Land : MonoBehaviour
     {
         if (addF)
         {
-            rb.AddForce(Vector3.up * 20);
+            //rb.AddForce(Vector3.up * 20);
             addF = false;
         }
     }
@@ -132,15 +144,16 @@ public class SpriritMovement_Land : MonoBehaviour
         state = "ReturnToSpawn";
     }
 
-    public void abilityMove(Vector3 pos, Quaternion rot = new Quaternion(), float changeSpeed = 1f)
+    public void abilityMove(Vector3 pos, Quaternion rot = new Quaternion())
     {
         state = "ForceMovement";
         forceMove = pos;
         //forceMove.y += 0.5f;
         forceRot = rot;
-        accel = changeSpeed;
+        accel = 5f;
         fs.enabled = false;
         addF = true;
+        rb.detectCollisions = false;
     }
 
 

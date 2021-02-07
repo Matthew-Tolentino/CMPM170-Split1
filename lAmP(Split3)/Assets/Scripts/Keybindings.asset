@@ -17,3 +17,5 @@ MonoBehaviour:
   pause: 27
   nextDialogue: 102
   sprint: 304
+  spiritInc: 101
+  spiritDec: 113
