@@ -49,6 +49,13 @@ public class PlayerMovement : MonoBehaviour
         float vert = Input.GetAxisRaw("Vertical");
         float hori = Input.GetAxisRaw("Horizontal");
 
+        // If Dialogue is showing disable movement
+        if (DialogueManager.instance.isOpen)
+        {
+            vert = 0f;
+            hori = 0f;
+        }
+
         Vector3 dir = new Vector3(hori, 0f, vert).normalized;
 
         // Freecam when Click

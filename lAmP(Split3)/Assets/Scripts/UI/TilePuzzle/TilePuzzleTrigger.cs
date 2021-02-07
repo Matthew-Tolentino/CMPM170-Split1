@@ -6,6 +6,8 @@ public class TilePuzzleTrigger : MonoBehaviour
 {
     public GameObject TilePuzzleCanvas;
 
+    private bool isActivated = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -17,7 +19,8 @@ public class TilePuzzleTrigger : MonoBehaviour
     private void StartTilePuzzle()
     {
         TilePuzzleCanvas.SetActive(true);
-        Invoke(nameof(CallShuffle), 1f);
+        if (!isActivated)
+            Invoke(nameof(CallShuffle), 1f);
 
         GameManager.instance.setMouseLock(false);
         GameManager.mouseState = GameManager.MouseState.canvas;
@@ -26,5 +29,6 @@ public class TilePuzzleTrigger : MonoBehaviour
     private void CallShuffle()
     {
         TilePuzzleCanvas.GetComponent<Puzzle>().StartShuffle();
+        isActivated = true;
     }
 }
