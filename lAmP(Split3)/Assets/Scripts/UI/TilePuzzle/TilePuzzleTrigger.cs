@@ -8,7 +8,6 @@ public class TilePuzzleTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collided");
         if (other.gameObject.CompareTag("Player"))
         {
             StartTilePuzzle();
@@ -21,6 +20,7 @@ public class TilePuzzleTrigger : MonoBehaviour
         Invoke(nameof(CallShuffle), 1f);
 
         GameManager.instance.setMouseLock(false);
+        GameManager.mouseState = GameManager.MouseState.canvas;
     }
 
     private void CallShuffle()

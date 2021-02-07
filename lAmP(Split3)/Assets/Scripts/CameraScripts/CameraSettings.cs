@@ -34,11 +34,6 @@ public class CameraSettings : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    private void UpdateUI()
-    {
-        FindObjectOfType<PausedMenu>().displaySpiritsOnUI();
-    }
-
     public void setCameraControl(bool isEnabled)
     {
         if (isEnabled)
@@ -50,7 +45,8 @@ public class CameraSettings : MonoBehaviour
         else
         {
             // Stop Camera Movement
-            freeLookCam.m_XAxis.m_InputAxisName = "";
+            //freeLookCam.m_XAxis.m_InputAxisName = "";
+            freeLookCam.m_XAxis.m_InputAxisName = "Horizontal";
             freeLookCam.m_YAxis.m_InputAxisName = "";
 
             // Prevent camera moving after hitting pause button

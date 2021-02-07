@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public static bool gameIsPaused = false;
 
+    public enum MouseState {canvas, game};
+    public static MouseState mouseState = MouseState.game;
+
     public GameObject pauseMenuCanvasUI;
     public GameObject pauseMenuUI;
 

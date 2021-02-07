@@ -39,7 +39,7 @@ MonoBehaviour:
   - {fileID: 114468842247498784}
   StringsBanks:
   - {fileID: 114593025129841732}
-  stringsBankWriteTime: 637481852787521543
+  stringsBankWriteTime: 637481402924970938
   cacheVersion: 6
 --- !u!114 &114017381259646700
 MonoBehaviour:
@@ -96,6 +96,26 @@ MonoBehaviour:
   Name: StepVariationNumber
   Min: 0
   Max: 10
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &114058368855938982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Continuous/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 2
   Default: 0
   ID:
     data1: 0
@@ -179,7 +199,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637481852788761766
+  lastModified: 637481402926077696
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -674,8 +694,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114665188840258974}
-  - {fileID: 114284707617852860}
+  - {fileID: 114654415171194986}
+  - {fileID: 114789622907801128}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -719,7 +739,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114485952332261650}
+  - {fileID: 114058368855938982}
   MinDistance: 0
   MaxDistance: 0
   Length: 13368
@@ -781,7 +801,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637481852787791590
+  lastModified: 637481402925219992
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -842,7 +862,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637481852787521543
+  lastModified: 637481402924970938
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -1023,7 +1043,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637481852787521543
+  lastModified: 637481402924970938
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -1218,6 +1238,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 166000
+--- !u!114 &114654415171194986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &114655233401419194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1478,7 +1518,7 @@ MonoBehaviour:
   Path: ../FMOD_Banks/Spirits.bank
   Name: Spirits
   StudioPath: bank:/Spirits
-  lastModified: 637477197412243922
+  lastModified: 637478903498701051
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -1544,6 +1584,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &114789622907801128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps_Discrete/StepVariationNumber
+  m_EditorClassIdentifier: 
+  Name: StepVariationNumber
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &114801621642656964
 MonoBehaviour:
   m_ObjectHideFlags: 0

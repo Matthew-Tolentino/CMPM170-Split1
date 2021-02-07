@@ -181,11 +181,12 @@ public class Puzzle : MonoBehaviour
         tileImage.color = tempColor;
     }
 
-    void ClosePuzzle()
+    public void ClosePuzzle()
     {
         gameObject.SetActive(false);
 
         GameManager.instance.setMouseLock(true);
+        GameManager.mouseState = GameManager.MouseState.game;
         // TODO: Add code here to open gate or something after finishing puzzle
     }
 }

@@ -23,6 +23,18 @@ public class InputManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    public bool GetKey(string key)
+    {
+        if (Input.GetKey(keybindings.CheckKey(key)))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public bool KeyDown(string key)
     {
         if (Input.GetKeyDown(keybindings.CheckKey(key)))
@@ -34,4 +46,6 @@ public class InputManager : MonoBehaviour
             return false;
         }
     }
+
+
 }

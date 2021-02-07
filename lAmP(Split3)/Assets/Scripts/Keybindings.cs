@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Keybindings", menuName = "Keybindings")]
 public class Keybindings : ScriptableObject
 {
-    public KeyCode jump, spiritAbility, pause, nextDialogue;
+    public KeyCode jump, spiritAbility, pause, nextDialogue, sprint;
 
     public KeyCode CheckKey(string key)
     {
@@ -24,6 +24,9 @@ public class Keybindings : ScriptableObject
 
             case "NextDialogue":
                 return nextDialogue;
+
+            case "Sprint":
+                return sprint;
 
             default:
                 return KeyCode.None;
