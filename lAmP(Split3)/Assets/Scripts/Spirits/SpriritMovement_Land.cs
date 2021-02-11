@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpriritMovement_Land : MonoBehaviour
 {
+	public GameObject pl;
     public Transform player;
 
     private Vector3 spawn;
@@ -55,8 +56,9 @@ public class SpriritMovement_Land : MonoBehaviour
         if (state == "OnPlayer")
         {
             moveTo = player.position;
+            rb.isKinematic = false;
             //moveTo.y = transform.position.y;
-            if (Vector3.Distance(transform.position, player.position) < 4f) {
+            if (Vector3.Distance(transform.position, player.position) < 2f) {
                 state = "OnPlayer_Idle";
                 accel = 1f;
                 timer = 5f;
@@ -73,7 +75,8 @@ public class SpriritMovement_Land : MonoBehaviour
             moveTo = transform.position;
             rb.useGravity = true;
             fs.enabled = true;
-            if (Vector3.Distance(transform.position, player.position) > 5f) {
+            rb.isKinematic = true;
+            if (Vector3.Distance(transform.position, player.position) > 3f) {
                 state = "OnPlayer";
                 timer = 5f;
             }
@@ -102,6 +105,7 @@ public class SpriritMovement_Land : MonoBehaviour
         }
         else if (state == "ForceMovement")
         {   
+        	rb.isKinematic = false;
             moveTo = forceMove;
             transform.rotation = forceRot;
             if (Mathf.Round(transform.position.x) == Mathf.Round(forceMove.x) && Mathf.Round(transform.position.z) == Mathf.Round(forceMove.z))
@@ -135,12 +139,14 @@ public class SpriritMovement_Land : MonoBehaviour
 
     public void ObtainSpiritLand()
     {
+    	Physics.IgnoreCollision(pl.GetComponent<Collider>(), GetComponent<Collider>(), true);
         state = "OnPlayer";
         accel = 5f;
     }
 
     public void ReleaseSpiritLand()
     {
+    	Physics.IgnoreCollision(pl.GetComponent<Collider>(), GetComponent<Collider>(), false);
         state = "ReturnToSpawn";
     }
 

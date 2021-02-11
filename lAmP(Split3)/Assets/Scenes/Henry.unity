@@ -9777,7 +9777,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325256241}
-  m_LocalRotation: {x: 0.16133955, y: 0.68845445, z: -0.16133952, w: 0.68845457}
+  m_LocalRotation: {x: 0.16133954, y: 0.68845445, z: -0.16133952, w: 0.6884545}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17845,6 +17845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1a7d0b2d00f604391558290f5f7011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pl: {fileID: 193613143}
   player: {fileID: 1058109201}
   speed: 1.5
   state: 
@@ -17887,7 +17888,7 @@ Rigidbody:
   m_GameObject: {fileID: 473303573}
   serializedVersion: 2
   m_Mass: 5
-  m_Drag: 0
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
