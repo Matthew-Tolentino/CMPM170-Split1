@@ -9,13 +9,14 @@ public class GameManager : MonoBehaviour
 
     public static bool gameIsPaused = false;
 
-    public enum MouseState {canvas, game};
+    public enum MouseState { canvas, game };
     public static MouseState mouseState = MouseState.game;
 
     public GameObject pauseMenuCanvasUI;
     public GameObject pauseMenuUI;
 
-    // Make sure there is only 1 GameManager
+    public CameraSettings camSettings;
+
     void Awake()
     {
         if (instance == null)
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
         }
         else if (instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
     }
@@ -59,8 +60,11 @@ public class GameManager : MonoBehaviour
         //Time.timeScale = 1f;
         gameIsPaused = false;
 
-        // Lock mouse
-        setMouseLock(true);
+        // Enable game control of camera (A and D)
+        setMouseLock(false);
+
+        // Set mouse state back to game
+        mouseState = MouseState.game;
     }
 
     void Pause()
@@ -75,6 +79,9 @@ public class GameManager : MonoBehaviour
 
         // Unlock mouse
         setMouseLock(false);
+
+        // Set mouse state to canvas
+        mouseState = MouseState.canvas;
     }
 
     void UpdateUI()
@@ -91,7 +98,7 @@ public class GameManager : MonoBehaviour
             Cursor.visible = false;
 
             // Turn on camera control
-            CameraSettings.instance.setCameraControl(true);
+            setCameraControl(true);
         }
         else
         {
@@ -99,7 +106,28 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            CameraSettings.instance.setCameraControl(false);
+            setCameraControl(false);
+        }
+    }
+
+    public void setCameraControl(bool isEnabled)
+    {
+        if (isEnabled)
+        {
+            // let mouse control camera
+            camSettings.inputXAxis = "Mouse X";
+            camSettings.inputYAxis = "Mouse Y";
+        }
+        else if (!isEnabled && gameIsPaused)
+        {
+            camSettings.inputXAxis = "";
+            camSettings.inputYAxis = "";
+        }
+        else
+        {
+            // let A and D control camera
+            camSettings.inputXAxis = "Horizontal";
+            camSettings.inputYAxis = "";
         }
     }
 }

@@ -73,6 +73,7 @@ public class PausedMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        transform.parent.gameObject.SetActive(false);
         SceneManager.LoadScene("MainMenu");
     }
 }

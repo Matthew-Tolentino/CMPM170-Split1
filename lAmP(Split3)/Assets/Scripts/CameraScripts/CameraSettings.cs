@@ -1,77 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
-using Cinemachine;
 
-public class CameraSettings : MonoBehaviour
+[CreateAssetMenu(fileName = "CameraSettings", menuName = "CameraSettings")]
+public class CameraSettings : ScriptableObject
 {
-    // Makes CameraSettings into a singleton
-    public static CameraSettings instance;
+    public bool xInvert, yInvert;
+    public float xSense, ySense;
+    public string inputXAxis, inputYAxis;
 
-    public CinemachineFreeLook freeLookCam;
-
-    [Header("UI Setting Objects")]
-    public Toggle xAxis;
-    public Toggle yAxis;
-
-    public Slider xSense;
-    public Slider ySense;
-
-    public GameObject escMenu;
-
-    // Make sure there is only 1 CameraSettings
-    void Awake()
+    public float getXSense()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(this);
-        }
-        DontDestroyOnLoad(this);
+        return xSense;
     }
 
-    public void setCameraControl(bool isEnabled)
+    public float getYSense()
     {
-        if (isEnabled)
-        {
-            // Enable Camera Movement
-            freeLookCam.m_XAxis.m_InputAxisName = "Mouse X";
-            freeLookCam.m_YAxis.m_InputAxisName = "Mouse Y";
-        }
-        else
-        {
-            // Stop Camera Movement
-            //freeLookCam.m_XAxis.m_InputAxisName = "";
-            freeLookCam.m_XAxis.m_InputAxisName = "Horizontal";
-            freeLookCam.m_YAxis.m_InputAxisName = "";
-
-            // Prevent camera moving after hitting pause button
-            freeLookCam.m_XAxis.m_InputAxisValue = 0f;
-            freeLookCam.m_YAxis.m_InputAxisValue = 0f;
-        }
+        return ySense;
     }
 
-    public void toggleXInversion()
+    public bool getXInvert()
     {
-        freeLookCam.m_XAxis.m_InvertInput = xAxis.isOn;
+        return xInvert;
     }
 
-    public void toggleYInversion()
+    public bool getYInvert()
     {
-        freeLookCam.m_YAxis.m_InvertInput = yAxis.isOn;
-    }
-
-    public void setXMouseSense()
-    {
-        freeLookCam.m_XAxis.m_MaxSpeed = xSense.value;
-    }
-
-    public void setYMouseSense()
-    {
-        freeLookCam.m_YAxis.m_MaxSpeed = ySense.value;
+        return yInvert;
     }
 }
