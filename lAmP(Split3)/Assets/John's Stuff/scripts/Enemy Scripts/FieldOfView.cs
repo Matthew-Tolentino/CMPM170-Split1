@@ -74,7 +74,7 @@ public class FieldOfView : MonoBehaviour
                     transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
                     // Tell other scripts that the player is seen
                     isSeen = true;
-                    //animationRef.seenCounter++;
+                    animationRef.seenCounter++;
                     spiritRef.loseSpirit();
                     // Add player to visible targets list
                     visibleTargets.Add(target);

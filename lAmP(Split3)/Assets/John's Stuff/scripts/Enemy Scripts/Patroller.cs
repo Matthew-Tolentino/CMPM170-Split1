@@ -35,7 +35,8 @@ public class Patroller : MonoBehaviour
     void Update()
     {
         //Debug.Log("isSeen: "+vision.isSeen);
-        Debug.Log("reset: " +reset);
+        //Debug.Log("isSeen: "+vision.isSeen);
+       
         if (vision.isSeen == true)
         {
             reset = true;
