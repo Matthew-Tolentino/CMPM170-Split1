@@ -15,6 +15,10 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
 
+    // Added by John to control player animation
+    private GameObject player;
+    private Animation_Handler playerAnimation;
+
     public bool isOpen = false;
 
     private Queue<string> sentences;
@@ -36,7 +40,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sentences = new Queue<string>();
+       sentences = new Queue<string>();
     }
 
     // TODO: Implement overall input manager
@@ -52,6 +56,15 @@ public class DialogueManager : MonoBehaviour
     {
         isOpen = true;
         animator.SetBool("isOpen", true);
+
+        // Stops the player from animating when a dialogue box is up
+        player = GameObject.Find("Vulpecula");
+        playerAnimation = player.GetComponent<Animation_Handler>();
+        playerAnimation.enabled = false;
+        // Resets the player animator to idle
+        playerAnimation.GetComponent<Animator>().Rebind();
+        playerAnimation.GetComponent<Animator>().Update(0f);
+
 
         nameTxt.SetText(dialogue.name);
 
@@ -95,5 +108,6 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", false);
         isOpen = false;
+        playerAnimation.enabled = true;
     }
 }

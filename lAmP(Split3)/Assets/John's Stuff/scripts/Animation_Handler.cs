@@ -13,9 +13,12 @@ public class Animation_Handler : MonoBehaviour
     public float seenCounter = 0;
     private float startHealth = 1;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
+       
         animator = GetComponent<Animator>();
         
     }
@@ -88,4 +91,6 @@ public class Animation_Handler : MonoBehaviour
         
        
     }
+
+
 }
