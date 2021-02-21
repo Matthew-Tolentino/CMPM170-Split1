@@ -9667,6 +9667,7 @@ GameObject:
   - component: {fileID: 376505347}
   - component: {fileID: 376505346}
   - component: {fileID: 376505345}
+  - component: {fileID: 376505350}
   m_Layer: 0
   m_Name: Lamp
   m_TagString: Spirit_Floating
@@ -9779,6 +9780,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &376505350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376505343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Spirits/Mid Spirit
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Pitch
+    Value: -0.32
+  - Name: Tremulo Depth
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!4 &380092031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4388669660258538, guid: ef755e42d1e5cec469cfd13b72c631ab,
@@ -16163,6 +16191,7 @@ GameObject:
   - component: {fileID: 473303577}
   - component: {fileID: 473303574}
   - component: {fileID: 473303578}
+  - component: {fileID: 473303580}
   - component: {fileID: 473303579}
   m_Layer: 0
   m_Name: Rock_spirit
@@ -16271,8 +16300,35 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &473303580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473303573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Spirits/Low Spirit
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Tremulo Depth
+    Value: 0.704
+  - Name: Pitch
+    Value: 0.22
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &475284822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48953,6 +49009,7 @@ GameObject:
   - component: {fileID: 1438438977}
   - component: {fileID: 1438438976}
   - component: {fileID: 1438438980}
+  - component: {fileID: 1438438982}
   - component: {fileID: 1438438981}
   m_Layer: 0
   m_Name: Float_Spirit
@@ -49065,8 +49122,35 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &1438438982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438438975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Spirits/Mid Spirit
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Tremulo Depth
+    Value: 0
+  - Name: Pitch
+    Value: -0.07
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &1442004646
 PrefabInstance:
   m_ObjectHideFlags: 0

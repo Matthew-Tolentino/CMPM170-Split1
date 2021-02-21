@@ -65,7 +65,11 @@ public class SpiritHandler : MonoBehaviour
         }
         else return;
 
-        collision.gameObject.GetComponent<FMODUnity.StudioEventEmitter>().Play();
+        //collision.gameObject.GetComponent<FMODUnity.StudioEventEmitter>().Play();
+        foreach (var emitter in collision.gameObject.GetComponents<FMODUnity.StudioEventEmitter>())
+        {
+            emitter.Play();
+        }
 
         SpiritList.Add(collision.gameObject);
         if (selectedSpirit == -1) selectedSpirit = 0;
